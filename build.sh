@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
+export INSPIRCD_DISABLE_RPATH=1
+export INSPIRCD_VERSION=4.10.1
+#export INSPIRCD_REVISION=1
 
 # Bash 4 is required for associative arrays.
 if [ "${BASH_VERSINFO[0]}" -lt 4 ]
@@ -44,12 +47,6 @@ then
 	INSPIRCD_MODULES_DEFAULT='1'
 	INSPIRCD_MODULES='argon2 geo_maxmind ldap log_json log_syslog mysql pgsql regex_pcre2 regex_posix regex_re2 sqlite3 ssl_gnutls ssl_openssl sslrehashsignal'
 fi
-
-# Modules which should not be packaged.
-declare -Ax INSPIRCD_MODULE_WARNINGS=(
-	["geo_maxmind"]="libmaxminddb's license (Apache 2.0) is not compatible with InspIRCd's (GPLv2)"
-	["ssl_openssl"]="OpenSSL's license (custom) is not compatible with InspIRCd's (GPLv2)"
-)
 
 # The directory the current script is in.
 export INSPIRCD_ROOT_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}"))
