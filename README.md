@@ -1,62 +1,18 @@
-## InspIRCd Packages
+# INSPIRCD 编译脚本说明
+* 源码属于 [inspircd](https://github.com/inspircd/inspircd)
+* 编译脚本属于 [inspircd-build](https://github.com/inspircd/inspircd-build)
+* 版权属于原作者 INSPIRCD 开发团队; 感谢他们的付出
+* 
+* 编译脚本修改说明: 
+* * 我们除去了rpm软件包编译，只保留了deb软件包编译;
+* * 我们在编译脚本中应用了不兼容许可的应用程序 如: OpenSSL等;
+* * 此脚本只支持 Debian 系统;
 
-### About
+```
+专利互不侵犯条款
 
-This repository contains scripts for building InspIRCd packages. Currently, it has support for:
-
-* deb on Debian 12 and 13
-* deb on Ubuntu 22.04 and 24.04
-* RPM on Rocky Linux 8 and 9
-
-Support for packaging systems and platforms is planned. See the [open issues](https://github.com/inspircd/package-builder/issues) for details.
-
-### Requirements
-
-To build the packages you will need the following software:
-
-* Bash 4 or newer
-* Docker
-
-### Usage
-
-To build packages:
-
-1. Set the `INSPIRCD_VERSION` environment variable to an InspIRCd tag.
-2. Run the `./build.sh` script in your shell.
-3. Get a cup of tea whilst packages are built.
-
-The packages will be built into the `./build` directory.
-
-### Advanced Usage
-
-The following environment variables can be set to change the behaviour of the build scripts:
-
-#### INSPIRCD_CONTRIB (default: *none*)
-
-A space-delimited list of the [contrib modules](https://github.com/inspircd/inspircd-contrib) to install and build. These modules are maintained by third parties and are not supported by the InspIRCd Team.
-
-#### INSPIRCD_MODULES (default: *varies*)
-
-A space-delimited list of the [extra modules](https://docs.inspircd.org/3/modules/#extra-modules) to build. If not set it defaults to all of the modules which have dependencies available and can legally be shipped in binary form.
-
-#### INSPIRCD_PACKAGES (default: `deb rpm html`)
-
-A space-delimited list of the package types to build. The current supported options are:
-
-Name | Description
----- | -----------
-deb  | Build the deb packages for Debian-based distributions.
-rpm  | Build the RPM packages for RHEL-based distributions.
-html | Build the web index for the packages. Should always be listed last.
-
-#### INSPIRCD_REPOSITORY (default: `inspircd/inspircd`)
-
-The GitHub repository to build the specified version from. This is useful if you have a custom fork you want to test changes in.
-
-#### INSPIRCD_REVISION (default: `1`)
-
-Sets the revision of the package. This is useful if you are rebuilding the package and want it to take preference over a previously built version.
-
-### License
-
-These scripts are licensed under the same license as InspIRCd (GPLv2).
+    由于 ARKFUTURE 打包 的INSPIRCD 使用了 多个 许可证 且 多个许可证中可能会有不兼容的情况
+    在此 ARKFUTURE 专利互不侵犯条款诞生
+    用户承诺不对本分发包(ARKFUTURE 打包)中整合的开源组件（InspIRCd/OpenSSL）及其合规衍生作品提起专利侵权诉讼
+    若用户违反本条款，其通过本协议获得的所有专利授权自动终止。
+```
