@@ -15,13 +15,15 @@ override_dh_auto_configure:
 		./modulemanager install ${INSPIRCD_CONTRIB}; \
 	fi
 	./configure \
+		--enable-extras "argon2 ldap log_json log_syslog mysql pgsql regex_pcre2 regex_posix regex_re2 regex_tre sqlite3 ssl_gnutls sslrehashsignal"
+	./configure \
 		--development \
 		--disable-auto-extras \
-		--enable-extras="argon2 ldap log_json log_syslog mysql pgsql regex_pcre2 regex_posix regex_re2 regex_tre sqlite3 ssl_gnutls sslrehashsignal" \
 		--distribution-label "deb@@INSPIRCD_REVISION@@" \
 		--gid "irc" \
 		--system \
 		--uid "irc"
+
 
 override_dh_auto_install:
 	dh_auto_install
