@@ -16,7 +16,7 @@ override_dh_auto_configure:
 	fi
 	./configure \
 		--development \
-				--disable-auto-extras \
+		--disable-auto-extras \
 		--enable-extras="argon2 ldap log_json log_syslog mysql pgsql regex_pcre2 regex_posix regex_re2 regex_tre sqlite3 ssl_gnutls sslrehashsignal" \
 		--distribution-label "deb@@INSPIRCD_REVISION@@" \
 		--gid "irc" \
