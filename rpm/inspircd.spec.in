@@ -46,10 +46,7 @@ then
 	./modulemanager install ${INSPIRCD_CONTRIB}
 fi
 ./configure \
-	--enable-extras "@@RPM_MODULES@@"
-./configure \
 	--development \
-	--disable-auto-extras \
 	--disable-ownership \
 	--distribution-label rpm@@INSPIRCD_REVISION@@ \
 	--system
