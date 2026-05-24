@@ -15,10 +15,12 @@ SOURCECODE="/root/inspircd-${INSPIRCD_VERSION}"
 
 # Install the required tools and development packages.
 export DEBIAN_FRONTEND=noninteractive
+#sed -i s@/deb.debian.org/@/mirrors.ustc.edu.cn/@g /etc/apt/sources.list.d/debian.sources
 apt-get update
 apt-get install --assume-yes --no-install-recommends \
 	build-essential \
 	ca-certificates \
+	libpsl-dev \
 	debhelper \
 	debhelper-compat \
 	wget \
