@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
   workflow_dispatch:
 jobs:
   version:
@@ -40,6 +40,15 @@ jobs:
 
       - name: List packages
         run: cat ./build/packages.yml
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: inspircd-${{ matrix.platform }}
+          path: |
+            ./build/*.deb
+            ./build/*.ddeb
+
     strategy:
       fail-fast: false
       matrix:
