@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 export INSPIRCD_DISABLE_RPATH=1
-export INSPIRCD_VERSION=4.10.1
 #export INSPIRCD_REVISION=1
 
 # Bash 4 is required for associative arrays.
