@@ -1,9 +1,8 @@
 inspircd (@@INSPIRCD_VERSION@@~@@PLATFORM_SUFFIX@@@@INSPIRCD_REVISION@@) unstable; urgency=medium
 
   * Release @@INSPIRCD_VERSION@@~@@PLATFORM_SUFFIX@@@@INSPIRCD_REVISION@@.
-  * This is the INSPIRCD full modules package But Non-official full modules build.
-  * Includes all extras and contrib modules (license incompatible modules included).
-  * Replaces official inspircd package.
+  * This is the INSPIRCD full modules package, but it is a non-official build.
+  * May contain modules with non-free or incompatible licenses.
   * Original author: InspIRCd Team <noreply@inspircd.org>.
 
  -- ARKFUTURE <ARKFUTURESTUDIO@GMAIL.COM>  @@DEB_BUILD_STAMP@@
