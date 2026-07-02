@@ -53,5 +53,5 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - package: zip
-            platform: FULL-ZIP
+          - package: deb
+            platform: Debian
