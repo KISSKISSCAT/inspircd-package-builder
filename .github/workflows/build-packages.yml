@@ -53,11 +53,5 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - package: deb
-            platform: debian-12
-          - package: deb
-            platform: debian-13
-          - package: deb
-            platform: debian-14
-          - package: deb
-            platform: ubuntu-26-04
+          - package: zip
+            platform: FULL-ZIP
