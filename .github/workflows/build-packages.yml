@@ -22,6 +22,12 @@ jobs:
           echo "Building packages for InspIRCd ${INSPIRCD_VERSION}"
           echo "INSPIRCD_VERSION=${INSPIRCD_VERSION}" >> $GITHUB_OUTPUT
 
+      - name: Display version
+        run: |
+          echo "::group::InspIRCd Version Information"
+          echo "📦 Version: ${{ steps.version.outputs.INSPIRCD_VERSION }}"
+          echo "::endgroup::"
+
   build:
     runs-on: ${{ matrix.runner }} 
     env:
@@ -34,6 +40,11 @@ jobs:
       - version
     steps:
       - uses: actions/checkout@v6
+
+      - name: Show InspIRCd version
+        run: |
+          echo "InspIRCd version: ${{ env.INSPIRCD_VERSION }}"
+          echo "::notice title=InspIRCd Version::Building version ${{ env.INSPIRCD_VERSION }}"
 
       - name: Build packages
         run: ./build.sh
