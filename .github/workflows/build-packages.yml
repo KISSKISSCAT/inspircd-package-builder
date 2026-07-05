@@ -23,7 +23,7 @@ jobs:
           echo "INSPIRCD_VERSION=${INSPIRCD_VERSION}" >> $GITHUB_OUTPUT
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.runner }} 
     env:
       INSPIRCD_RPM_PLATFORMS: ${{ matrix.package == 'rpm' && matrix.platform || null }}
       INSPIRCD_IGNORE_WARNINGS: 1
@@ -44,7 +44,7 @@ jobs:
       - name: Upload packages
         uses: actions/upload-artifact@v6
         with:
-          name: inspircd-${{ matrix.platform }}
+          name: inspircd-${{ matrix.platform }}-${{ matrix.arch }}
           path: |
             ./build/*.deb
             ./build/*.ddeb
@@ -55,3 +55,9 @@ jobs:
         include:
           - package: deb
             platform: FULL
+            runner: ubuntu-latest
+            arch: amd64
+          - package: deb
+            platform: FULL-arm
+            runner: ubuntu-24.04-arm
+            arch: arm64
