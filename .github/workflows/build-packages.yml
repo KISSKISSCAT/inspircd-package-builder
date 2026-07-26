@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
   schedule:
-    - cron: "0 0 * * 3"
+    - cron: "0 0 1 * *" 
   workflow_dispatch:
 jobs:
   version:
@@ -33,7 +33,8 @@ jobs:
       INSPIRCD_IGNORE_WARNINGS: 1
       INSPIRCD_VERSION: ${{ needs.version.outputs.INSPIRCD_VERSION }}
       INSPIRCD_PACKAGES: ${{ matrix.package }} html
-      INSPIRCD_REVISION: ${{ github.sha }}
+      #INSPIRCD_REVISION: ${{ github.sha }}
+      INSPIRCD_REVISION: 1
     needs:
       - version
     steps:
