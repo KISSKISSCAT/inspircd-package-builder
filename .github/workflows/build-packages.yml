@@ -63,6 +63,6 @@ jobs:
             runner: ubuntu-latest
             arch: amd64
           - package: deb
-            platform: FULL-arm
+            platform: FULL
             runner: ubuntu-24.04-arm
             arch: arm64
